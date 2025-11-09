@@ -1,7 +1,13 @@
 {
   "name": "ksu-alt",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Library for KernelSU and KernelSU-Next module WebUI",
+  "keywords": [
+    "su",
+    "kernelsu",
+    "module",
+    "webui"
+  ],
   "type": "module",
   "license": "Apache-2.0",
   "homepage": "https://github.com/slituix/ksu-alt",

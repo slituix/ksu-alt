@@ -1,0 +1,38 @@
+{
+  "name": "ksu-alt",
+  "version": "1.0.2",
+  "description": "Library for KernelSU and KernelSU-Next module WebUI",
+  "type": "module",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/slituix/ksu-alt",
+  "bugs": {
+    "url": "https://github.com/slituix/ksu-alt/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slituix/ksu-alt.git"
+  },
+  "author": "KOWX712 <leecc0503@gmail.com>",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+    "./README.md": "./README.md"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.0",
+    "bumpp": "^10.3.1",
+    "tsdown": "^0.16.1",
+    "vitest": "^4.0.8"
+  }
+}

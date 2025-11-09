@@ -3,7 +3,7 @@
 ## Install
 
 ```sh
-npm i kernelsu-alt
+npm i ksu-alt
 ```
 
 ## API

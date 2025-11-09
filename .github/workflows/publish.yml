@@ -33,9 +33,14 @@ jobs:
 
       - name: verify build
         run: ls -R dist
+        
+      - uses: actions/setup-node@v6
+        with:
+          node-version: latest
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Publish to npm
         env:
-          NPM_CONFIG_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          bun publish --access public
+          npm publish --provenance --access=public

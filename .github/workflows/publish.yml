@@ -1,47 +1,15 @@
-name: Build & Publish
+name: Release
 
 on:
   push:
     tags:
-      - "v*"          
-  workflow_dispatch: 
-
-permissions:
-  contents: read
-  packages: write
-  id-token: write
+      - 'v*'
 
 jobs:
-  build-and-publish:
-    name: Build & Publish to npm
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v5
-
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install dependencies
-        run: bun install --frozen-lockfile
-
-      - name: Build Library
-        run: bun run build
-
-      - name: verify build
-        run: ls -R dist
-        
-      - uses: actions/setup-node@v6
-        with:
-          node-version: latest
-          registry-url: 'https://registry.npmjs.org'
-
-      - name: Publish to npm
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          npm publish --provenance --access=public
+  release:
+    uses: sxzz/workflows/.github/workflows/release.yml@v1
+    with:
+      publish: true
+    permissions:
+      contents: write
+      id-token: write
